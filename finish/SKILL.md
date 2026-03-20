@@ -23,15 +23,16 @@ Verify implementation, close issues, and clean up after a task.
    - Flag anything that looks unfinished (TODOs, commented-out code, debug prints)
    - Confirm all acceptance criteria from the issue/PRD are met
 
-4. **Create PR** — If on a feature branch:
+4. **Create PR and merge** — If on a feature branch:
    - Push the branch: `git push -u origin <branch>`
    - Create a PR with `gh pr create`, referencing issues with `fixes #N` in the body
-   - GitHub will auto-close referenced issues when the PR is merged
+   - Ask user to confirm, then merge: `gh pr merge --merge`
 
-5. **Post-merge cleanup** — After the PR is merged:
+5. **Branch cleanup** — Immediately after merge:
    - Switch back to main: `git checkout main && git pull`
    - Delete the local branch: `git branch -d <branch>`
-   - Delete the remote branch (if not auto-deleted): `git push origin --delete <branch>`
+   - Delete the remote branch: `git push origin --delete <branch>`
+   - Verify cleanup: confirm no stale branches remain
 
 6. **Summary** — Report:
    ```
