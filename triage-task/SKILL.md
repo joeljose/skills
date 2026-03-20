@@ -19,22 +19,27 @@ Assess task complexity and route to the right-sized pipeline.
 
 3. **Classify and recommend a path**:
 
-   **Small** (1-2 files, no design decisions, <30 min)
-   → Create one GitHub issue → implement → `/finish`
-   Examples: typo fix, config change, simple bug fix, add a test
+   **Small — docs/chore** (1-2 files, no design decisions, <30 min)
+   → Create one GitHub issue → branch → implement → `/finish`
+   Examples: typo fix, config change, CI tweak, documentation update
+
+   **Small — code** (1-2 files, no design decisions, <30 min)
+   → Create one GitHub issue → branch → `/tdd` → `/finish`
+   Examples: simple bug fix, add a test, small refactor
 
    **Medium** (2-5 files, one module, clear scope)
-   → Lightweight PRD via `/write-a-prd` (problem + scope + acceptance only) → `/prd-to-issues` → implement → `/finish`
+   → `/write-a-prd` (lightweight) → `/design-doc` (mini) → `/prd-to-issues` → branch → `/tdd` (per issue) → `/finish`
    Examples: new endpoint, add validation, refactor a module
 
    **Large** (cross-cutting, design decisions, multiple modules)
-   → `/write-a-prd` → `/grill-me` → `/prd-to-issues` → implement → `/simplify` → `/finish`
+   → `/write-a-prd` → `/grill-me` → `/design-doc` → `/prd-to-issues` → branch → `/tdd` (per issue) → `/simplify` → `/finish`
    Examples: new feature spanning multiple systems, architecture change, new integration
 
 4. **Present the recommendation** — Show:
    ```
    Type: [type]
    Complexity: [Small / Medium / Large]
+   Testing: [/tdd | not required]
    Recommended path: [pipeline]
    Reason: [one sentence]
    ```
@@ -50,3 +55,4 @@ Assess task complexity and route to the right-sized pipeline.
 - When in doubt between two sizes, recommend the smaller one
 - Let the user override — this is a recommendation, not a gate
 - If the task is genuinely trivial (rename a variable, fix a typo), Small is correct even if it feels like overkill
+- For docs and chore tasks, testing is not required. For all other types, `/tdd` is the implementation method — tests are written before code and committed together, before pushing.

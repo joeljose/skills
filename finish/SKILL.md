@@ -46,6 +46,8 @@ Verify implementation, close issues, and clean up after a task.
 ## Rules
 - Never close an issue manually — let GitHub auto-close via PR merge
 - If tests fail, fix them before creating the PR
-- If there's no test infrastructure, note it as a suggestion but don't block
+- If production code was changed but no tests were added or modified, STOP before pushing and ask: "No tests cover these changes. Run /tdd to add tests, or confirm 'skip tests' to proceed."
+- Skip this check for docs-only or config-only changes
+- If the user confirms skip, note "Shipped without tests" in the PR body
 - Be honest about open items — don't declare victory if something is incomplete
 - Always clean up the feature branch after merge

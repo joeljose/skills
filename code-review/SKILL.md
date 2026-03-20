@@ -48,6 +48,18 @@ Perform a structured code review with actionable, severity-rated findings.
    - Are workflow action versions current?
    - Do CI lint/test scripts match what developers run locally?
 
+   **Testing**
+   - Do tests exist for the code being reviewed?
+   - Are new functions/features covered by tests?
+   - Are edge cases tested (null, empty, boundary values, error paths)?
+   - Is the test approach appropriate (unit vs integration vs e2e)?
+   - Are mocks used correctly (at boundaries, not for internal code)?
+
+   **Requirements & Design**
+   - For medium/large features: does a PRD (GitHub issue) exist and is it linked?
+   - For medium/large features: does a design doc exist in `docs/design/`?
+   - If either is missing, note it — requirements and architectural decisions should be documented before implementation
+
 4. **Report findings** — For each issue:
    ```
    **[SEVERITY] Title** — file:line

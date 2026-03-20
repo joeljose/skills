@@ -27,6 +27,7 @@ Skills are symlinked, so edits to this repo are immediately available in Claude 
 |-------|-------------|
 | `triage-task` | Assess task complexity and route to the right-sized pipeline |
 | `finish` | Post-implementation verification — run tests, check CI, close issues, cleanup |
+| `release` | Cut a release — bump version, update changelog, commit, tag, and hand off to /finish |
 | `simplify` | Post-implementation refactoring pass on recently changed code |
 
 ### Planning
@@ -36,6 +37,7 @@ Skills are symlinked, so edits to this repo are immediately available in Claude 
 | `prd-to-plan` | Breaks a PRD into phased implementation plan using vertical "tracer bullet" slices |
 | `prd-to-issues` | Like prd-to-plan but creates actual GitHub issues per slice |
 | `grill-me` | Stress-test your plan — Claude relentlessly questions every decision |
+| `design-doc` | Create a technical design doc — architecture, alternatives, tradeoffs — before breaking into issues |
 
 ### Development
 | Skill | Description |
@@ -62,9 +64,10 @@ Start with `/triage-task` to route to the right-sized workflow:
 ```
 /triage-task  →  routes to:
 
-  SMALL:   issue → implement → /finish
-  MEDIUM:  /write-a-prd (lightweight) → /prd-to-issues → implement → /finish
-  LARGE:   /write-a-prd → /grill-me → /prd-to-issues → implement → /simplify → /finish
+  SMALL (docs/chore):  issue → branch → implement → /finish
+  SMALL (code):        issue → branch → /tdd → /finish
+  MEDIUM:              /write-a-prd → /design-doc (mini) → /prd-to-issues → branch → /tdd → /finish
+  LARGE:               /write-a-prd → /grill-me → /design-doc → /prd-to-issues → branch → /tdd → /simplify → /finish
 ```
 
 ## Usage

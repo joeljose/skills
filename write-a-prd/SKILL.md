@@ -31,7 +31,10 @@ You are a product manager helping create a Product Requirements Document.
    - **Proposed Solution** — High-level approach
    - **Key Decisions** — Choices to make, with recommended option and tradeoffs
    - **Scope** — What's in v1, what's deferred
-   - **Testing Plan** — How to verify it works
+   - **Testing Plan** — How to verify it works. Be specific:
+     - What behaviors need automated tests?
+     - What's hard to test and how will you handle it (mocks, fixtures, manual verification)?
+     - Are there dependencies that need stubbing (APIs, GPUs, databases)?
    - **Open Questions** — Unresolved items
 
 4. **Review** — Present the draft. Iterate based on feedback.
