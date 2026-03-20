@@ -20,19 +20,19 @@ Assess task complexity and route to the right-sized pipeline.
 3. **Classify and recommend a path**:
 
    **Small — docs/chore** (1-2 files, no design decisions, <30 min)
-   → Create one GitHub issue → branch → implement → `/finish`
+   → Create one GitHub issue → branch → implement → `/finish` → `/release` (if needed)
    Examples: typo fix, config change, CI tweak, documentation update
 
    **Small — code** (1-2 files, no design decisions, <30 min)
-   → Create one GitHub issue → branch → `/tdd` → `/finish`
+   → Create one GitHub issue → branch → `/tdd` → `/finish` → `/release` (if needed)
    Examples: simple bug fix, add a test, small refactor
 
    **Medium** (2-5 files, one module, clear scope)
-   → `/write-a-prd` (lightweight) → `/design-doc` (mini) → `/prd-to-issues` → branch → `/tdd` (per issue) → `/finish`
+   → `/write-a-prd` (lightweight) → `/design-doc` (mini) → `/prd-to-issues` → branch → `/tdd` (per issue) → `/finish` → `/release`
    Examples: new endpoint, add validation, refactor a module
 
    **Large** (cross-cutting, design decisions, multiple modules)
-   → `/write-a-prd` → `/grill-me` → `/design-doc` → `/prd-to-issues` → branch → `/tdd` (per issue) → `/simplify` → `/finish`
+   → `/write-a-prd` → `/grill-me` → `/design-doc` → `/prd-to-issues` → branch → `/tdd` (per issue) → `/simplify` → `/finish` → `/release`
    Examples: new feature spanning multiple systems, architecture change, new integration
 
 4. **Present the recommendation** — Show:

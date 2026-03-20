@@ -64,10 +64,10 @@ Start with `/triage-task` to route to the right-sized workflow:
 ```
 /triage-task  →  routes to:
 
-  SMALL (docs/chore):  issue → branch → implement → /finish
-  SMALL (code):        issue → branch → /tdd → /finish
-  MEDIUM:              /write-a-prd → /design-doc (mini) → /prd-to-issues → branch → /tdd → /finish
-  LARGE:               /write-a-prd → /grill-me → /design-doc → /prd-to-issues → branch → /tdd → /simplify → /finish
+  SMALL (docs/chore):  issue → branch → implement → /finish → /release (if needed)
+  SMALL (code):        issue → branch → /tdd → /finish → /release (if needed)
+  MEDIUM:              /write-a-prd → /design-doc (mini) → /prd-to-issues → branch → /tdd → /finish → /release
+  LARGE:               /write-a-prd → /grill-me → /design-doc → /prd-to-issues → branch → /tdd → /simplify → /finish → /release
 ```
 
 ## Usage

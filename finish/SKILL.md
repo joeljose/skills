@@ -51,3 +51,4 @@ Verify implementation, close issues, and clean up after a task.
 - If the user confirms skip, note "Shipped without tests" in the PR body
 - Be honest about open items — don't declare victory if something is incomplete
 - Always clean up the feature branch after merge
+- After merge, ask: "Does this warrant a version bump? Run `/release` to cut a release, or skip if not needed." Skip for trivial changes (typos, internal docs). Suggest for bug fixes (patch), new features (minor), or breaking changes (major).
