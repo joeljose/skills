@@ -41,11 +41,12 @@ Assess task complexity and route to the right-sized pipeline.
    Ask the user to confirm or override.
 
 5. **Execute** — Once confirmed, start the first step of the chosen path:
-   - **Small**: Create a GitHub issue with `gh issue create` and begin implementation
-   - **Medium/Large**: Invoke `/write-a-prd`
+   - **Small**: Create a GitHub issue with `gh issue create`, create a feature branch (`git checkout -b feature/short-description`), and begin implementation
+   - **Medium/Large**: Create a GitHub issue or invoke `/write-a-prd`, then create a feature branch before implementation begins
 
 ## Rules
 - Always create at least one GitHub issue before coding — never skip straight to implementation
+- Always create a feature branch before implementing — never commit directly to `main`
 - When in doubt between two sizes, recommend the smaller one
 - Let the user override — this is a recommendation, not a gate
 - If the task is genuinely trivial (rename a variable, fix a typo), Small is correct even if it feels like overkill
