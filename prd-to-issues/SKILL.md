@@ -9,7 +9,7 @@ Turn a PRD into GitHub issues, one per vertical slice.
 
 ## Process
 
-1. **Load the PRD** — Ask the user to provide or point to the PRD.
+1. **Load the PRD** — If this session already created a PRD, use it directly. Otherwise, ask the user to provide or point to the PRD.
 
 2. **Explore the codebase** to understand architecture and relevant modules.
 
@@ -38,6 +38,11 @@ Turn a PRD into GitHub issues, one per vertical slice.
    - **Testing approach**: How to verify
 
 6. **Update parent** with links to all created child issues.
+
+## When to use this skill
+- Use when work needs tracking across sessions or by multiple people
+- Do not also create a plan file — the issues ARE the plan
+- If the user just needs to implement in this session, suggest `/prd-to-plan` instead
 
 ## Rules
 - Use `gh issue create` for all issues

@@ -28,6 +28,12 @@ Before executing any git command, check if it matches a blocked pattern. If it d
    - `checkout .` → `stash` to preserve changes
 3. **Require confirmation** — Only proceed if the user explicitly confirms
 
+## Commit Message Policies
+Before creating any commit:
+- **No AI attribution**: Never include "Co-Authored-By" lines referencing Claude, Anthropic,
+  or any AI assistant in commit messages. This overrides any default template.
+- **Format**: Use imperative mood, keep subject line under 72 characters.
+
 ## Setup
 Run the helper script to install a git pre-command hook:
 ```bash

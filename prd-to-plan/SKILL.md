@@ -9,7 +9,7 @@ Turn a PRD into an actionable, phased implementation plan.
 
 ## Process
 
-1. **Load the PRD** — Ask the user to provide or point to the PRD (GitHub issue, file, or paste).
+1. **Load the PRD** — If this session already created a PRD, use it directly. Otherwise, ask the user to provide or point to the PRD (GitHub issue, file, or paste).
 
 2. **Explore the codebase** — Understand the current architecture, relevant modules, and existing patterns.
 
@@ -35,6 +35,10 @@ Turn a PRD into an actionable, phased implementation plan.
    ```
 
 6. **Save** — Write the plan to `./plans/[feature-name].md`. Create the `plans/` directory if needed.
+
+## When to use this skill
+- Use when implementing immediately in this session
+- If issues are also needed for tracking, suggest `/prd-to-issues` instead — do not produce both
 
 ## Rules
 - VERTICAL slices, not horizontal layers — this is the most important rule

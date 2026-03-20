@@ -43,6 +43,11 @@ Perform a structured code review with actionable, severity-rated findings.
    - Appropriate abstraction level? (not too abstract, not too concrete)
    - Dead code or commented-out code?
 
+   **CI/CD**
+   - Does the CI workflow target the correct branch?
+   - Are workflow action versions current?
+   - Do CI lint/test scripts match what developers run locally?
+
 4. **Report findings** — For each issue:
    ```
    **[SEVERITY] Title** — file:line

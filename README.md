@@ -22,6 +22,13 @@ Skills are symlinked, so edits to this repo are immediately available in Claude 
 
 ## Skills
 
+### Pipeline
+| Skill | Description |
+|-------|-------------|
+| `triage-task` | Assess task complexity and route to the right-sized pipeline |
+| `finish` | Post-implementation verification — run tests, check CI, close issues, cleanup |
+| `simplify` | Post-implementation refactoring pass on recently changed code |
+
 ### Planning
 | Skill | Description |
 |-------|-------------|
@@ -41,19 +48,31 @@ Skills are symlinked, so edits to this repo are immediately available in Claude 
 ### Tooling
 | Skill | Description |
 |-------|-------------|
-| `git-guardrails` | Blocks dangerous git commands before execution |
+| `git-guardrails` | Blocks dangerous git commands before execution + commit message policies |
 | `write-a-skill` | Meta-skill for creating new Claude Code skills |
-| `code-review` | Structured code review with severity-rated findings |
+| `code-review` | Structured code review with severity-rated findings + CI/CD checks |
 | `security-audit` | Scan for common vulnerabilities and secrets |
 | `explain-codebase` | Generate architecture overview for onboarding |
 | `debug` | Systematic debugging: reproduce → isolate → hypothesize → verify → fix |
+
+## Recommended Pipeline
+
+Start with `/triage-task` to route to the right-sized workflow:
+
+```
+/triage-task  →  routes to:
+
+  SMALL:   issue → implement → /finish
+  MEDIUM:  /write-a-prd (lightweight) → /prd-to-issues → implement → /finish
+  LARGE:   /write-a-prd → /grill-me → /prd-to-issues → implement → /simplify → /finish
+```
 
 ## Usage
 
 In Claude Code, type `/skill-name` to invoke any skill. For example:
 
 ```
-/grill-me
+/triage-task
 /tdd
 /code-review
 ```
