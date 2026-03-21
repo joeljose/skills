@@ -25,8 +25,9 @@ Verify implementation, close issues, and clean up after a task.
 
 4. **Create PR and merge** — If on a feature branch:
    - Push the branch: `git push -u origin <branch>`
-   - Create a PR with `gh pr create`, referencing issues with `fixes #N` in the body
-   - Ask user to confirm, then merge: `gh pr merge --merge`
+   - Create a PR with `gh pr create`, referencing issues with `Fixes #N` in the body
+   - Ask user to confirm, then merge using **squash merge**: `gh pr merge --squash`
+   - IMPORTANT: Use `--squash` (not `--merge`) so that GitHub auto-closes referenced issues. With regular merge commits, `Fixes #N` in the PR body is NOT picked up by GitHub's auto-close. Squash merge includes the PR body in the squash commit message, which triggers auto-close.
 
 5. **Branch cleanup** — Immediately after merge:
    - Switch back to main: `git checkout main && git pull`
@@ -34,17 +35,22 @@ Verify implementation, close issues, and clean up after a task.
    - Delete the remote branch: `git push origin --delete <branch>`
    - Verify cleanup: confirm no stale branches remain
 
-6. **Summary** — Report:
+6. **Verify issue closure** — After merge:
+   - Run `gh issue list --state open` to check if referenced issues were auto-closed
+   - If any `Fixes #N` issues are still open (can happen with merge commits or repo settings), close them manually: `gh issue close N -c "Completed in PR #X"`
+
+7. **Summary** — Report:
    ```
    ✓ Tests: [pass/fail]
    ✓ CI: [pass/fail/not configured]
    ✓ PR: [link]
-   ✓ Issues to auto-close on merge: [list]
+   ✓ Issues closed: [list]
    ✓ Open items: [any remaining TODOs or concerns]
    ```
 
 ## Rules
-- Never close an issue manually — let GitHub auto-close via PR merge
+- Prefer squash merge (`--squash`) to ensure GitHub auto-closes issues referenced with `Fixes #N` in the PR body
+- If issues are not auto-closed after merge, close them manually with a comment linking to the PR
 - If tests fail, fix them before creating the PR
 - If production code was changed but no tests were added or modified, STOP before pushing and ask: "No tests cover these changes. Run /tdd to add tests, or confirm 'skip tests' to proceed."
 - Skip this check for docs-only or config-only changes
